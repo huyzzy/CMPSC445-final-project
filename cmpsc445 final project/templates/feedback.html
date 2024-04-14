@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+    <form action="/feedback" method="post">
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" name="feedback" required></textarea><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <h2>Previous Feedback</h2>
+    <ul>
+        {% for feedback_item in feedback %}
+            <li>{{ feedback_item }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Educational Content</title>
+</head>
+<body>
+    <h1>Educational Content on Violence Prevention</h1>
+    <ul>
+        {% for content in contents %}
+            <li>
+                <h2>{{ content.title }}</h2>
+                <p>{{ content.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
