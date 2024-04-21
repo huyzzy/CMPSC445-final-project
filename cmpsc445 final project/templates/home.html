@@ -1,19 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home - Violence Prevention App</title>
-</head>
-<body>
-    <h1>Welcome to the Violence Prevention App</h1>
-    <nav>
-        <ul>
-            <li><a href="/educational">Educational Content</a></li>
-            <li><a href="/map">Resource Map</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/feedback">Feedback</a></li>
-            <li><a href="/predict_form">Make a Prediction</a></li>
-
-        </ul>
-    </nav>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <div class="container mt-3">
+        <h1>Welcome to the Community Awareness App</h1>
+        <p>Select a feature to explore:</p>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Educational Content</h4>
+                        <p class="card-text">Learn about the signs of potential violence and how to react.</p>
+                        <a href="/educational" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Resource Map</h4>
+                        <p class="card-text">View local resources and find help near you.</p>
+                        <a href="/map" class="btn btn-primary">View Map</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Community Events</h4>
+                        <p class="card-text">Stay updated with upcoming safety workshops and events.</p>
+                        <a href="/events" class="btn btn-primary">See Events</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Violence Prediction</h4>
+                        <p class="card-text">Submit queries to predict the nature of emergencies and violence.</p>
+                        <a href="/predict_form" class="btn btn-primary">Make a Prediction</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Submit Feedback</h4>
+                        <p class="card-text">Your opinions and suggestions are valuable to us.</p>
+                        <a href="/feedback" class="btn btn-primary">Give Feedback</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
