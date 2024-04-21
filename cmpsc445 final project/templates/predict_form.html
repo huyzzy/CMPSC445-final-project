@@ -1,25 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Predict Violence or Emergency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1, h2 {
+            color: #333366;
+        }
+        p {
+            color: #666;
+            margin: 20px 0;
+        }
+        ul {
+            text-align: left;
+            margin: 0 auto;
+            padding-left: 0;
+            list-style: none;
+        }
+        li {
+            background: #eee;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-left: 5px solid #4CAF50;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #1a0dab;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Query Prediction</h1>
-    <p>Enter your query about potential violence or emergency situations. For example:</p>
-    <ul>
-        <li>"What are signs of someone planning to act violently?"</li>
-        <li>"What should I do if I see someone with a gun?"</li>
-        <li>"How to identify a threat at night?"</li>
-        <li>"Steps to take during a lockdown?"</li>
-    </ul>
-    <form action="/predict" method="post">
-        <input type="text" name="query" required placeholder="Type your query here...">
-        <button type="submit">Submit Query</button>
-    </form>
-    {% if prediction %}
-        <h2>Predicted Category: {{ prediction }}</h2>
-        <p>You asked about: {{ query }}</p>
-    {% endif %}
-    <a href="/">Back to Home</a>
+    <div class="container">
+        <h1>Query Prediction</h1>
+        <p>Enter your query about potential violence or emergency situations. For example:</p>
+        <ul>
+            <li>"What are signs of someone planning to act violently?"</li>
+            <li>"What should I do if I see someone with a gun?"</li>
+            <li>"How to identify a threat at night?"</li>
+            <li>"Steps to take during a lockdown?"</li>
+        </ul>
+        <form action="/predict" method="post">
+            <input type="text" name="query" required placeholder="Type your query here...">
+            <button type="submit">Submit Query</button>
+        </form>
+        {% if prediction %}
+            <h2>Predicted Category: {{ prediction }}</h2>
+            <p>You asked about: {{ query }}</p>
+        {% endif %}
+        <a href="/">Back to Home</a>
+    </div>
 </body>
 </html>
