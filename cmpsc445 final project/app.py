@@ -31,7 +31,7 @@ def load_dataset(file_path):
     return data
 
 # Load and prepare data for training
-dataset_path = 'dataset.txt'  # Make sure this path is correct
+dataset_path = 'dataset.txt' 
 training_data = load_dataset(dataset_path)
 model = make_pipeline(TfidfVectorizer(), MultinomialNB())
 model.fit([text for text, label in training_data], [label for text, label in training_data])
