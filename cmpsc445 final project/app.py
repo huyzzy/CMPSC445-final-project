@@ -21,18 +21,21 @@ events = [
 
 feedback = []
 
-# Model training
-data = [
-    ("What are signs of someone planning to act violently?", "Violence"),
-    ("What should I do if I see someone with a gun?", "Emergency"),
-    ("How to identify a threat?", "Violence"),
-    ("Steps to take during a lockdown?", "Emergency"),
-    ("Recognizing aggressive behavior", "Violence"),
-    ("Immediate actions to take after hearing gunshots?", "Emergency")
-]
-texts, labels = zip(*data)
+# Load the dataset from file
+def load_dataset(file_path):
+    data = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            question, label = line.strip().split(" - ")
+            data.append((question, label))
+    return data
+
+# Load and prepare data for training
+dataset_path = 'dataset.txt'  # Make sure this path is correct
+training_data = load_dataset(dataset_path)
 model = make_pipeline(TfidfVectorizer(), MultinomialNB())
-model.fit(texts, labels)
+model.fit([text for text, label in training_data], [label for text, label in training_data])
+
 
 # Route to show the prediction form
 @app.route('/predict_form')
